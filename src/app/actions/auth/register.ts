@@ -4,7 +4,7 @@ import bcrypt from "bcrypt"
 
 import { registerSchema, RegisterSchema } from "@/lib/schemas/registerSchema";
 import { prisma } from "@/lib/prisma";
-import { getUseByEmail } from "../user/user";
+import { getUserByEmail } from "../user/user";
 
 
 
@@ -19,7 +19,7 @@ export const register = async (values: RegisterSchema) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const existingUser = await getUseByEmail(email)
+    const existingUser = await getUserByEmail(email)
 
     if (existingUser) {
         return { error: "Email  already in use!" }

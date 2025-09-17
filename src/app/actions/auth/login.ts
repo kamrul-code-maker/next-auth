@@ -18,7 +18,7 @@ export const login = async (values: LoginSchema): Promise<{ error?: string; succ
     await signIn("credentials", {
       email,
       password,
-      redirect: false, // এখানে false দিবেন যাতে আপনি নিজে redirect handle করতে পারেন
+      redirect: true, // এখানে false দিবেন যাতে আপনি নিজে redirect handle করতে পারেন
       callbackUrl: DEFAULT_LOGIN_REDIRECT,
     });
 

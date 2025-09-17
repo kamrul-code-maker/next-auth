@@ -8,11 +8,20 @@ import { CardContent } from "@/components/ui/card";
 import { LoginSchema, loginSchema } from "@/lib/schemas/loginSchema";
 import { login } from "@/app/actions/auth/login";
 import { SuccessErrorMessage } from "@/components/SuccessErrorMessage";
+import SocialLink from "../socialLink";
+import { useSearchParams } from "next/navigation";
 
 
 
 
 export default function LoginForm() {
+
+  const searchParams = useSearchParams();
+//   const callbackUrl = searchParams.get("callbackUrl");
+  const urlError =
+    searchParams.get("error") === "OAuthAccountNotLinked"
+      ? "Email already in use with different provider!"
+      : "";
     return (
         <CardContent className="p-6">
             <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
@@ -76,6 +85,8 @@ export default function LoginForm() {
                         {/* Formik render এর মধ্যে */}
                         <SuccessErrorMessage error={status?.error} success={status?.success} />
 
+                        {/* OAuthAccountNotLinked error */}
+                        {urlError && <p className="text-red-500">{urlError}</p>}
 
                         {/* Submit */}
                         <Button type="submit" className="w-full" disabled={isSubmitting} >
@@ -86,22 +97,7 @@ export default function LoginForm() {
             </Formik>
 
             {/* Social login */}
-            <div className="mt-4 space-y-2">
-                <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={() => alert("Dummy Google Login 🚀")}
-                >
-                    Continue with Google
-                </Button>
-                <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={() => alert("Dummy GitHub Login 🚀")}
-                >
-                    Continue with GitHub
-                </Button>
-            </div>
+            <SocialLink />
 
             {/* Register link */}
             <p className="text-center text-sm mt-4">
