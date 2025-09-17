@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { CardContent } from "@/components/ui/card";
-import { LoginSchema, loginSchema } from "@/lib/schemas/loginSchema";
+import { loginSchema } from "@/lib/schemas/loginSchema";
 import { login } from "@/app/actions/auth/login";
 import { SuccessErrorMessage } from "@/components/SuccessErrorMessage";
 import SocialLink from "../socialLink";
@@ -16,12 +16,12 @@ import { useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
 
-  const searchParams = useSearchParams();
-//   const callbackUrl = searchParams.get("callbackUrl");
-  const urlError =
-    searchParams.get("error") === "OAuthAccountNotLinked"
-      ? "Email already in use with different provider!"
-      : "";
+    const searchParams = useSearchParams();
+    //   const callbackUrl = searchParams.get("callbackUrl");
+    const urlError =
+        searchParams.get("error") === "OAuthAccountNotLinked"
+            ? "Email already in use with different provider!"
+            : "";
     return (
         <CardContent className="p-6">
             <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>

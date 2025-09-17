@@ -7,7 +7,7 @@ import { Loader2 } from "lucide-react"
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { newVerification } from "@/app/actions/user/new-verification"
+import { newVerification } from "@/app/actions/auth/new-verification"
 
 
 export const NewVerificationForm = () => {

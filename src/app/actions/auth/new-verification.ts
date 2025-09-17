@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
-import { getUserByEmail } from "./user";
+import { getUserByEmail } from "../user/user";
 import { getVerificationTokenByToken } from "./verificiation-token";
 
 
