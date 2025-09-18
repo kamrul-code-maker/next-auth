@@ -5,7 +5,7 @@ import bcrypt from "bcrypt"
 import { registerSchema, RegisterSchema } from "@/lib/schemas/registerSchema";
 import { prisma } from "@/lib/prisma";
 import { getUserByEmail } from "../user/user";
-import { generateVerificationToken } from "@/lib/token";
+import { generateVerificationToken } from "@/lib/tokens";
 import { sendVerificationEmail } from "@/lib/mail";
 
 

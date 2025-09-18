@@ -3,7 +3,7 @@
 import * as z from "zod";
 import bcrypt from "bcryptjs";
 import { NewPasswordSchema } from "@/lib/schemas/resetSchme";
-import { getPasswordResetTokenByToken } from "../user/password-reset-token";
+import { getPasswordResetTokenByToken } from "./password-reset-token";
 import { getUserByEmail } from "../user/user";
 import { prisma } from "@/lib/prisma";
 
